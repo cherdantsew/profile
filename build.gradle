@@ -1,0 +1,46 @@
+plugins {
+    id 'org.springframework.boot' version '2.6.2'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+ext {
+    springBootStarterVersion = '2.6.2'
+}
+
+
+jar {
+    enabled = false
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    implementation "org.springframework.boot:spring-boot-starter-web:${springBootStarterVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-data-jpa:${springBootStarterVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-jdbc:${springBootStarterVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-validation:${springBootStarterVersion}"
+    implementation 'javax.validation:validation-api:2.0.1.Final'
+    implementation 'com.vladmihalcea:hibernate-types-52:2.14.0'
+    implementation 'org.postgresql:postgresql:42.3.1'
+    implementation 'org.liquibase:liquibase-core:4.6.2'
+    implementation group: 'io.swagger.core.v3', name: 'swagger-annotations', version: '2.1.12'
+    implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.6.3'
+    implementation group: 'com.h2database', name: 'h2', version: '2.0.206'
+
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+
+    testImplementation "org.springframework.boot:spring-boot-starter-test:${springBootStarterVersion}"
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+}
+
+test {
+    useJUnitPlatform()
+}
